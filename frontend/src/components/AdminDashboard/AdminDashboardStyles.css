@@ -1,0 +1,46 @@
+.admin-dashboard-container {
+  margin-top: 50px;
+}
+
+.admin-dashboard-heading {
+  margin-bottom: 20px;
+  font-size: 54px;
+  font-weight: 800;
+}
+
+.admin-error-message {
+  color: red;
+}
+
+.admin-employee-list {
+  /* list-style: none; */
+  padding: 5px;
+}
+
+.admin-employee-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.admin-employee-item:last-child {
+  border-bottom: none;
+}
+
+.admin-approve-button,
+.admin-reject-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.admin-approve-button:hover,
+.admin-reject-button:hover {
+  background-color: #0056b3;
+}
