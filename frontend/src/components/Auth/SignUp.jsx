@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "../../axiosConfig";
-import './AuthStyles.css'; // Custom CSS file for additional styling
+import './AuthStyles.css'; 
 
 function SignUp() {
   const navigate = useNavigate(); 

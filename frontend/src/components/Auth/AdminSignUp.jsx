@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles'; // Import makeStyles
-import { Container, Box, Typography, Button } from '@material-ui/core';
+import axios from "../../axiosConfig";
+import './AuthStyles.css'; // Custom CSS file for additional styling
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    // Define your styles here
-    // For example:
-    padding: theme.spacing(2),
-    border: '1px solid #ccc',
-    borderRadius: theme.spacing(1),
-  },
-}));
-
-export default function AdminSignUp() {
-  const classes = useStyles();
+function SignUp() {
   const navigate = useNavigate(); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -22,21 +11,7 @@ export default function AdminSignUp() {
 
   const handleSignUp = async () => {
     try {
-      
-      if (!username || !password) {
-        console.error('Username and password are required');
-        return;
-      }
-      
-     
-      if (!role) {
-        console.error('Role is required');
-        return;
-      }
-
-      console.log('Signing up:', { username, password, role });
-      
-      
+      await axios.post('/auth/signup/Admin', { username, password, role });
       navigate('/');
     } catch (error) {
       console.error('Error signing up:', error);
@@ -44,9 +19,9 @@ export default function AdminSignUp() {
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box mt={5} className={classes.box}>
-        <Typography variant="h4">Sign Up</Typography>
+    <div className="container">
+      <div className="auth-box mt-5">
+        <h4>Sign Up</h4>
         <div className="form-group">
           <input
             type="text"
@@ -75,10 +50,12 @@ export default function AdminSignUp() {
             <option value="Admin">Admin</option>
           </select>
         </div>
-        <Button variant="contained" color="primary" onClick={handleSignUp} fullWidth>
+        <button className="btn btn-primary btn-block" onClick={handleSignUp}>
           Sign Up
-        </Button>
-      </Box>
-    </Container>
+        </button>
+      </div>
+    </div>
   );
 }
+
+export default SignUp;

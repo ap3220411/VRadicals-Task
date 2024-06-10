@@ -3,14 +3,14 @@ const bcrypt = require('bcrypt');
 const User = require('../models/Auth');
 
 const generateToken = (userId, role) => {
-  return jwt.sign({ userId, role }, "12345");
+  return jwt.sign({ userId, role }, "123456");
 };
 
 const AdminSignUp = async (req, res) => {
   try {
     const { username, password, role } = req.body;
 
-    // Check if the username is already taken
+    
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });

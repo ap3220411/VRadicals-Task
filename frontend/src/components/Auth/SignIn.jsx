@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Typography, Container, Box, Button } from '@material-ui/core';
-import './AuthStyles.css'; // Custom CSS file for additional styling
 import axios from "../../axiosConfig";
+
 
 function SignIn() {
   const navigate = useNavigate();
@@ -51,9 +50,9 @@ function SignIn() {
   };
 
   return (
-    <Container maxWidth="xs">
-      <Box mt={5} className="auth-box">
-        <Typography variant="h4">Sign In</Typography>
+    <div className="container">
+      <div className="mt-5 auth-box">
+        <h4>Sign In</h4>
         <div className="form-group">
           <input
             type="text"
@@ -72,12 +71,12 @@ function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button variant="contained" color="primary" onClick={handleSignIn} fullWidth>
+        <button className="btn btn-primary btn-block" onClick={handleSignIn}>
           Sign In
-        </Button>
-        {error && <Typography variant="body2" color="error">{error}</Typography>}
-      </Box>
-    </Container>
+        </button>
+        {error && <p className="text-danger mt-2">{error}</p>}
+      </div>
+    </div>
   );
 }
 
