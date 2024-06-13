@@ -12,6 +12,7 @@ function SignUp() {
   const handleSignUp = async () => {
     try {
       await axios.post('/auth/signup', { username, password, role });
+      alert("HR Account Created Successfully")
       navigate('/');
     } catch (error) {
       console.error('Error signing up:', error);
@@ -21,7 +22,7 @@ function SignUp() {
   return (
     <div className="container">
       <div className="auth-box mt-5">
-        <h4>Sign Up</h4>
+        <h4> Only HR SignUp</h4>
         <div className="form-group">
           <input
             type="text"

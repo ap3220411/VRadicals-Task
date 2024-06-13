@@ -4,6 +4,7 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const cors =require("cors")
+const dotenv = require("dotenv")
 
 
 const authRoutes = require('./routes/authRoutes');
@@ -15,11 +16,12 @@ const hrRoutes = require('./routes/AdminHrRoutes');
 const app = express();
 app.use(cors());
 app.use(express.json());
+dotenv.config()
 
 
 // database
 
-mongoose.connect("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6")
+mongoose.connect(process.env.DATA_BASE)
     .then(() => {
         console.log("Database connected")
     })
