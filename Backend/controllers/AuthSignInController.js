@@ -12,10 +12,10 @@ const generateToken = (userId, role) => {
 
 const signIn = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
    
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -30,7 +30,7 @@ const signIn = async (req, res) => {
     const token = generateToken(user._id, user.role);
 
 
-    res.json({ success: true, message: "Login successful", token, user: { id: user._id, role: user.role, username: user.username } });
+    res.json({ success: true, message: "Login successful", token, user: { id: user._id, role: user.role, email: user.email } });
   } catch (error) {
     console.error('Error signing in:', error);
     res.status(500).json({ message: 'Server Error' });

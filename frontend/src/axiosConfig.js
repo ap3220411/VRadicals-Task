@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 const instance = Axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://admin-hr-dashboard-backend.onrender.com', 
   
   headers: { 'Content-Type': 'application/json' }
 });

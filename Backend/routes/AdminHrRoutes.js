@@ -11,9 +11,12 @@ const { protectRoute } = require('../middleware/authMiddleware');
 
 router.post('/addemployees', protectRoute, roleMiddleware(['HR']), employeeController.addEmployee);
 router.get('/employees', protectRoute, roleMiddleware(['HR']), employeeController.getPendingEmployees);
+router.put('/employees/:employeeId', protectRoute,roleMiddleware(['HR']),employeeController.editEmployee);
+
 
 
 router.get('/employees/pending', protectRoute, roleMiddleware(['Admin']), employeeController.getPendingEmployees);
+router.get('/employees/approve', protectRoute, roleMiddleware(['Admin']), employeeController.getApprovedEmployees);
 router.put('/employees/:employeeId/approve', protectRoute, roleMiddleware(['Admin']), employeeController.approveEmployee);
 router.put('/employees/:employeeId/reject', protectRoute, roleMiddleware(['Admin']), employeeController.rejectEmployee);
 

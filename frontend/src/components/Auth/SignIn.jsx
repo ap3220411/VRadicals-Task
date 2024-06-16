@@ -5,7 +5,7 @@ import axios from "../../axiosConfig";
 
 function SignIn() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
@@ -20,12 +20,12 @@ function SignIn() {
 
   const handleSignIn = async () => {
     try {
-      if (!username || !password) {
-        setError('Username and password are required.');
+      if (!email || !password) {
+        setError('email and password are required.');
         return;
       }
 
-      const response = await axios.post('/auth/signin', { username, password });
+      const response = await axios.post('/auth/signin', { email, password });
       const { user, token } = response.data;
 
       localStorage.setItem('user', JSON.stringify(user));
@@ -34,7 +34,7 @@ function SignIn() {
       navigateUser(user);
     } catch (error) {
       console.error('Error signing in:', error);
-      setError('Invalid username or password. Please try again.');
+      setError('Invalid email or password. Please try again.');
     }
   };
 
@@ -57,9 +57,9 @@ function SignIn() {
           <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
           />
         </div>
         <div className="form-group">

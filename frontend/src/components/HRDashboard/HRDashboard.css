@@ -1,22 +1,128 @@
+
+
 .container {
-  max-width: 600px;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.mt-5 {
-  margin-top: 3rem;
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
 }
 
-.list-group-item {
-  display: flex;
-  justify-content: left ;
-  align-items: center;
-  float: left;
+h2 {
+  color: #01050a;
+  margin-bottom: 30px;
+font-weight: 600;
+font-size: 25px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  height: 45px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.btn {
+  height: 45px;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
+  transition: background-color 0.3s ease;
 }
-.list-group{
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.table-container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.table {
   width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  color: #212529;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-info:hover {
+  background-color: #138496;
+}
+
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th {
+  background-color: #138496;
 }

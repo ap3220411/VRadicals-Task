@@ -5,31 +5,31 @@ import './AuthStyles.css';
 
 function SignUp() {
   const navigate = useNavigate(); 
-  const [username, setUsername] = useState('');
+  const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
 
   const handleSignUp = async () => {
     try {
-      await axios.post('/auth/signup', { username, password, role });
-      alert("HR Account Created Successfully")
+      await axios.post('/auth/signup', { email, password, role });
+      alert(" Account Created Successfully")
       navigate('/');
     } catch (error) {
-      console.error('Error signing up:', error);
+      alert('Error signing up:', error);
     }
   };
 
   return (
     <div className="container">
       <div className="auth-box mt-5">
-        <h4> Only HR SignUp</h4>
+        <h4> SignUp</h4>
         <div className="form-group">
           <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -49,6 +49,7 @@ function SignUp() {
           >
             <option value="">Select Role</option>
             <option value="HR">HR</option>
+            <option value="Admin">Admin</option>
           </select>
         </div>
         <button className="btn btn-primary btn-block" onClick={handleSignUp}>
